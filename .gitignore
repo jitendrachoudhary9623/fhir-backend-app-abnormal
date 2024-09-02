@@ -1,0 +1,5 @@
+# this is .giignore for expressjs and typescript
+
+# node_modules
+node_modules
+package-lock.json

@@ -11,6 +11,7 @@ This is a production-grade Express.js application with TypeScript for handling F
 - CORS, Helmet for security
 - Environment variable configuration
 - Swagger UI for API documentation
+- JWKS (JSON Web Key Set) endpoint for token verification
 
 ## Prerequisites
 
@@ -34,6 +35,22 @@ This is a production-grade Express.js application with TypeScript for handling F
    ```
    PORT=3000
    FHIR_SERVER_URL=<your-fhir-server-url>
+   ```
+
+4. Generate or provide your own `keys.json` file in the `keys` folder. The file should contain your JSON Web Key Set. For example:
+   ```json
+   {
+     "keys": [
+       {
+         "kty": "RSA",
+         "kid": "1",
+         "use": "sig",
+         "alg": "RS256",
+         "n": "your-modulus-here",
+         "e": "AQAB"
+       }
+     ]
+   }
    ```
 
 ## Running the application
@@ -69,6 +86,16 @@ http://localhost:3000/api-docs
 ```
 
 This provides an interactive interface to explore and test the API endpoints.
+
+## JWKS Endpoint
+
+The JWKS (JSON Web Key Set) endpoint is available at:
+
+```
+http://localhost:3000/jwks
+```
+
+This endpoint returns the public keys used for verifying JWT tokens.
 
 ## API Endpoints
 

@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab Results Report</title>
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --abnormal-bg: #ffebee;
+            --normal-bg: #e8f5e9;
+            --border-color: #ddd;
+        }
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
         h1, h2 {
-            color: #2c3e50;
+            color: var(--primary-color);
         }
         table {
             border-collapse: collapse;
@@ -19,8 +28,8 @@
             margin-bottom: 20px;
         }
         th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
+            border: 1px solid var(--border-color);
+            padding: 12px;
             text-align: left;
         }
         th {
@@ -28,64 +37,111 @@
             font-weight: bold;
         }
         .abnormal {
-            background-color: #ffebee;
+            background-color: var(--abnormal-bg);
         }
         .normal {
-            background-color: #e8f5e9;
+            background-color: var(--normal-bg);
+        }
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr {
+                margin-bottom: 15px;
+            }
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+            }
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: bold;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Lab Results Report</h1>
+    <header>
+        <h1>Lab Results Report</h1>
+    </header>
     
-    <h2>Abnormal Results</h2>
-    <table>
-        <tr>
-            <th>Patient Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Test</th>
-            <th>Result</th>
-            <th>Reference Range</th>
-            <th>Interpretation</th>
-            <th>Recommendation</th>
-        </tr>
-        {{#each abnormalResults}}
-        <tr class="abnormal">
-            <td>{{patientName}}</td>
-            <td>{{patientAge}}</td>
-            <td>{{patientGender}}</td>
-            <td>{{observationDisplay}}</td>
-            <td>{{value}} {{unit}}</td>
-            <td>{{referenceRange}}</td>
-            <td>{{interpretation}}</td>
-            <td>{{recommendation}}</td>
-        </tr>
-        {{/each}}
-    </table>
-
-    <h2>Normal Results</h2>
-    <table>
-        <tr>
-            <th>Patient Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Test</th>
-            <th>Result</th>
-            <th>Reference Range</th>
-            <th>Interpretation</th>
-        </tr>
-        {{#each normalResults}}
-        <tr class="normal">
-            <td>{{patientName}}</td>
-            <td>{{patientAge}}</td>
-            <td>{{patientGender}}</td>
-            <td>{{observationDisplay}}</td>
-            <td>{{value}} {{unit}}</td>
-            <td>{{referenceRange}}</td>
-            <td>{{interpretation}}</td>
-        </tr>
-        {{/each}}
-    </table>
+    <main>
+        <section>
+            <h2>Abnormal Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Test</th>
+                        <th>Result</th>
+                        <th>Reference Range</th>
+                        <th>Interpretation</th>
+                        <th>Recommendation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each abnormalResults}}
+                    <tr class="abnormal">
+                        <td data-label="Patient Name">{{patientName}}</td>
+                        <td data-label="Age">{{patientAge}}</td>
+                        <td data-label="Gender">{{patientGender}}</td>
+                        <td data-label="Test">{{observationDisplay}}</td>
+                        <td data-label="Result">{{value}} {{unit}}</td>
+                        <td data-label="Reference Range">{{referenceRange}}</td>
+                        <td data-label="Interpretation">{{interpretation}}</td>
+                        <td data-label="Recommendation">{{recommendation}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </section>
+        
+        <section>
+            <h2>Normal Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Test</th>
+                        <th>Result</th>
+                        <th>Reference Range</th>
+                        <th>Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each normalResults}}
+                    <tr class="normal">
+                        <td data-label="Patient Name">{{patientName}}</td>
+                        <td data-label="Age">{{patientAge}}</td>
+                        <td data-label="Gender">{{patientGender}}</td>
+                        <td data-label="Test">{{observationDisplay}}</td>
+                        <td data-label="Result">{{value}} {{unit}}</td>
+                        <td data-label="Reference Range">{{referenceRange}}</td>
+                        <td data-label="Interpretation">{{interpretation}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Nirmitee Medical Laboratory. All rights reserved.</p>
+    </footer>
 </body>
 </html>

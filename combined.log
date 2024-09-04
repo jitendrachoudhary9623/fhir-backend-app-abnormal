@@ -1233,3 +1233,63 @@
 {"level":"info","message":"Found abnormal lab readings for 5 patients","timestamp":"2024-09-04T15:06:55.099Z"}
 {"level":"info","message":"Email sent successfully","timestamp":"2024-09-04T15:06:58.097Z"}
 {"level":"info","message":"Abnormal lab readings monitoring process completed","timestamp":"2024-09-04T15:06:58.097Z"}
+{"level":"info","message":"Abnormal lab readings monitoring initiated","timestamp":"2024-09-04T15:10:07.600Z"}
+{"level":"info","message":"Starting abnormal lab readings monitoring process","timestamp":"2024-09-04T15:10:07.601Z"}
+{"level":"info","message":"Signed JWT created","timestamp":"2024-09-04T15:10:07.607Z"}
+{"level":"info","message":"Access token obtained","timestamp":"2024-09-04T15:10:08.540Z"}
+{"level":"info","message":"Bulk API request initiated","timestamp":"2024-09-04T15:10:09.306Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:10:10.020Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:10:15.736Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:10:21.458Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:10:27.957Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:10:33.705Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:10:39.426Z"}
+{"level":"info","message":"Bulk API data received","timestamp":"2024-09-04T15:10:45.150Z"}
+{"level":"info","message":"Processing bulk data...","timestamp":"2024-09-04T15:10:45.150Z"}
+{"level":"info","message":"Processing data from: https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/BulkRequest/C68BF3D76ACF11EFBEE3005056BECC4A/eJbmi5dN5.sXcMH0zv.VHmw3","timestamp":"2024-09-04T15:10:45.150Z"}
+{"level":"info","message":"Processing data from: https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/BulkRequest/C68BF3D76ACF11EFBEE3005056BECC4A/eASKhGyZX26OAwWQ2PguoJg3","timestamp":"2024-09-04T15:10:46.112Z"}
+{"level":"info","message":"Bulk data processed","timestamp":"2024-09-04T15:10:46.840Z"}
+{"level":"info","message":"Found abnormal lab readings for 5 patients","timestamp":"2024-09-04T15:10:46.840Z"}
+{"level":"info","message":"Email sent successfully","timestamp":"2024-09-04T15:10:48.625Z"}
+{"level":"info","message":"Abnormal lab readings monitoring process completed","timestamp":"2024-09-04T15:10:48.625Z"}
+{"level":"info","message":"Cron job scheduled to run daily at midnight","timestamp":"2024-09-04T15:14:17.903Z"}
+{"level":"info","message":"Abnormal lab readings monitoring initiated","timestamp":"2024-09-04T15:14:54.761Z"}
+{"level":"info","message":"Starting abnormal lab readings monitoring process","timestamp":"2024-09-04T15:14:54.762Z"}
+{"level":"info","message":"Signed JWT created","timestamp":"2024-09-04T15:14:54.774Z"}
+{"level":"info","message":"Access token obtained","timestamp":"2024-09-04T15:14:55.773Z"}
+{"level":"info","message":"Bulk API request initiated","timestamp":"2024-09-04T15:14:56.494Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:14:57.199Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:15:02.915Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:15:08.652Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 of 7 patients","timestamp":"2024-09-04T15:15:14.434Z"}
+{"level":"info","message":"Bulk API data received","timestamp":"2024-09-04T15:15:20.185Z"}
+{"level":"info","message":"Processing bulk data...","timestamp":"2024-09-04T15:15:20.186Z"}
+{"level":"info","message":"Processing data from: https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/BulkRequest/71B97B216AD011EFB901005056BECC4A/enGqac64f7ppPj--oeeW-.w3","timestamp":"2024-09-04T15:15:20.187Z"}
+{"level":"info","message":"Processing data from: https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/BulkRequest/71B97B216AD011EFB901005056BECC4A/eDvZ.4DzAKb5BmCJPtNO-Vg3","timestamp":"2024-09-04T15:15:21.269Z"}
+{"level":"info","message":"Bulk data processed","timestamp":"2024-09-04T15:15:22.149Z"}
+{"level":"info","message":"Found abnormal lab readings for 5 patients","timestamp":"2024-09-04T15:15:22.152Z"}
+{"level":"info","message":"Email sent successfully","timestamp":"2024-09-04T15:15:23.981Z"}
+{"level":"info","message":"Abnormal lab readings monitoring process completed","timestamp":"2024-09-04T15:15:23.982Z"}
+{"level":"info","message":"Cron job scheduled to run daily at midnight","timestamp":"2024-09-04T15:16:13.841Z"}
+{"level":"info","message":"Cron job scheduled to run daily at midnight","timestamp":"2024-09-04T15:16:53.732Z"}
+{"level":"info","message":"Cron job scheduled to run daily at midnight","timestamp":"2024-09-04T15:18:00.788Z"}
+{"level":"info","message":"Cron job scheduled to run daily at midnight","timestamp":"2024-09-04T15:18:05.985Z"}
+{"level":"info","message":"Cron job scheduled to run daily at midnight","timestamp":"2024-09-04T15:29:05.573Z"}
+{"level":"info","message":"Abnormal lab readings monitoring initiated","timestamp":"2024-09-04T15:31:55.205Z"}
+{"level":"info","message":"Starting abnormal lab readings monitoring process","timestamp":"2024-09-04T15:31:55.206Z"}
+{"level":"info","message":"Signed JWT created","timestamp":"2024-09-04T15:31:55.220Z"}
+{"level":"info","message":"Access token obtained","timestamp":"2024-09-04T15:31:56.490Z"}
+{"level":"info","message":"Bulk API request initiated","timestamp":"2024-09-04T15:31:57.243Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:31:57.985Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:32:03.703Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:32:09.412Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:32:15.196Z"}
+{"level":"info","message":"Bulk API processing progress: Searched 0 patients","timestamp":"2024-09-04T15:32:20.941Z"}
+{"level":"info","message":"Bulk API data received","timestamp":"2024-09-04T15:32:26.652Z"}
+{"level":"info","message":"Processing bulk data...","timestamp":"2024-09-04T15:32:26.652Z"}
+{"level":"info","message":"Processing data from: https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/BulkRequest/D2261E986AD211EFABE3005056BECC4A/eCZVVGHeMaWbFSfo.g-73yA3","timestamp":"2024-09-04T15:32:26.653Z"}
+{"level":"info","message":"Processing data from: https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/BulkRequest/D2261E986AD211EFABE3005056BECC4A/eF3mtIOZizQQCW0LHfdAngg3","timestamp":"2024-09-04T15:32:27.621Z"}
+{"level":"info","message":"Bulk data processed","timestamp":"2024-09-04T15:32:28.353Z"}
+{"level":"info","message":"Found abnormal lab readings for 5 patients","timestamp":"2024-09-04T15:32:28.354Z"}
+{"level":"info","message":"Email sent successfully","timestamp":"2024-09-04T15:32:30.168Z"}
+{"level":"info","message":"Abnormal lab readings monitoring process completed","timestamp":"2024-09-04T15:32:30.168Z"}

@@ -19,6 +19,7 @@ export class AbnormalLabReadingsService {
       logger.info('Bulk API data received');
       const { patientBundles, observationBundles } = await apiService.processBulkData(bulkData, accessToken);
       logger.info('Bulk data processed');
+      
       const abnormalResults = await dataProcessingService.analyzePatientData(patientBundles, observationBundles);
       logger.info(`Found abnormal lab readings for ${abnormalResults.length} patients`);
       
@@ -38,3 +39,4 @@ export class AbnormalLabReadingsService {
 }
 
 export const monitoringService = new AbnormalLabReadingsService();
+

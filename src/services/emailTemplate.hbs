@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abnormal Lab Readings Alert</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .patient { margin-bottom: 20px; border: 1px solid #ddd; padding: 15px; }
+        .patient-header { background-color: #f4f4f4; padding: 10px; margin-bottom: 10px; }
+        .observation { margin-bottom: 10px; }
+        .observation-header { font-weight: bold; }
+        .abnormal { color: #d9534f; }
+    </style>
+</head>
+<body>
+    <h1>Abnormal Lab Readings Alert</h1>
+    <p>The following abnormal lab readings were detected:</p>
+
+    {{#each abnormalResults}}
+    <div class="patient">
+        <div class="patient-header">
+            <h2>Patient: {{patientName}} (ID: {{patientId}})</h2>
+        </div>
+        <h3>Abnormal Observations:</h3>
+        {{#each abnormalObservations}}
+        <div class="observation">
+            <p class="observation-header">{{display}} ({{code}})</p>
+            <p>Value: <span class="abnormal">{{value}} {{unit}}</span></p>
+            <p>Interpretation: {{interpretation}}</p>
+            <p>Reference Range: {{referenceRange}}</p>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+
+    <p>Please review these results and take appropriate action as necessary.</p>
+    <p>This is an automated message. Do not reply to this email.</p>
+</body>
+</html>

@@ -5,6 +5,8 @@ import nodemailer from 'nodemailer';
 import FormData from 'form-data';
 import { logger } from '../utils/logger';
 import { randomUUID } from 'crypto';
+import Handlebars from 'handlebars';
+import path from 'path';
 
 const CLIENT_ID = '23b07e2e-e31d-4274-be67-13b38a09065c';
 const KEYS_PATH = 'keys/keys.json';
@@ -257,9 +259,13 @@ class AbnormalLabReadingsService {
     return 'N/A';
   }
 
+  private async loadTemplate(): Promise<string> {
+    const templatePath = path.join(__dirname, 'emailTemplate.hbs');
+    return await fs.readFileSync(templatePath, 'utf-8');
+  }
+
   private async sendEmail(abnormalResults: AbnormalResult[]): Promise<void> {
     const transporter = nodemailer.createTransport({
-      // host: process.env.SMTP_HOST,
       host: 'smtp.ethereal.email',
       port: parseInt(process.env.SMTP_PORT || '587'),
       secure: process.env.SMTP_SECURE === 'true',
@@ -269,32 +275,22 @@ class AbnormalLabReadingsService {
       }
     });
 
-    const mailText = abnormalResults.map(result => `
-      Patient: ${result.patientName} (ID: ${result.patientId})
-      Abnormal Observations:
-      ${result.abnormalObservations.map(obs => `
-        - ${obs.display} (${obs.code})
-          Value: ${obs.value} ${obs.unit}
-          Interpretation: ${obs.interpretation}
-          Reference Range: ${obs.referenceRange}
-      `).join('\n')}
-      `).join('\n\n');
+    const template = Handlebars.compile(await this.loadTemplate());
 
     const mailOptions = {
       from: "jitendra@nirmitee.io",
       to: "jitendra93266@gmail.com",
       subject: 'Abnormal Lab Readings Alert',
-      text: `The following abnormal lab readings were detected:\n\n${mailText}`
+      html: template({ abnormalResults })
     };
 
     try {
       await transporter.sendMail(mailOptions);
-      logger.info('Email sent successfully');
+      console.log('Email sent successfully');
     } catch (error) {
-      logger.error('Error sending email:', error);
+      console.error('Error sending email:', error);
     }
   }
-
   private async processBulkData(bulkData: any, accessToken: string) {
     logger.info('Processing bulk data...');
     const patientData = bulkData?.output.filter((data: any) => data.type === 'Patient');

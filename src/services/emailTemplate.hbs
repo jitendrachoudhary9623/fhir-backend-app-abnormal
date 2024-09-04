@@ -3,38 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abnormal Lab Readings Alert</title>
+    <title>Lab Results Report</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .patient { margin-bottom: 20px; border: 1px solid #ddd; padding: 15px; }
-        .patient-header { background-color: #f4f4f4; padding: 10px; margin-bottom: 10px; }
-        .observation { margin-bottom: 10px; }
-        .observation-header { font-weight: bold; }
-        .abnormal { color: #d9534f; }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .abnormal {
+            background-color: #ffebee;
+        }
+        .normal {
+            background-color: #e8f5e9;
+        }
     </style>
 </head>
 <body>
-    <h1>Abnormal Lab Readings Alert</h1>
-    <p>The following abnormal lab readings were detected:</p>
-
-    {{#each abnormalResults}}
-    <div class="patient">
-        <div class="patient-header">
-            <h2>Patient: {{patientName}} (ID: {{patientId}})</h2>
-        </div>
-        <h3>Abnormal Observations:</h3>
-        {{#each abnormalObservations}}
-        <div class="observation">
-            <p class="observation-header">{{display}} ({{code}})</p>
-            <p>Value: <span class="abnormal">{{value}} {{unit}}</span></p>
-            <p>Interpretation: {{interpretation}}</p>
-            <p>Reference Range: {{referenceRange}}</p>
-        </div>
+    <h1>Lab Results Report</h1>
+    
+    <h2>Abnormal Results</h2>
+    <table>
+        <tr>
+            <th>Patient Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Test</th>
+            <th>Result</th>
+            <th>Reference Range</th>
+            <th>Interpretation</th>
+            <th>Recommendation</th>
+        </tr>
+        {{#each abnormalResults}}
+        <tr class="abnormal">
+            <td>{{patientName}}</td>
+            <td>{{patientAge}}</td>
+            <td>{{patientGender}}</td>
+            <td>{{observationDisplay}}</td>
+            <td>{{value}} {{unit}}</td>
+            <td>{{referenceRange}}</td>
+            <td>{{interpretation}}</td>
+            <td>{{recommendation}}</td>
+        </tr>
         {{/each}}
-    </div>
-    {{/each}}
+    </table>
 
-    <p>Please review these results and take appropriate action as necessary.</p>
-    <p>This is an automated message. Do not reply to this email.</p>
+    <h2>Normal Results</h2>
+    <table>
+        <tr>
+            <th>Patient Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Test</th>
+            <th>Result</th>
+            <th>Reference Range</th>
+            <th>Interpretation</th>
+        </tr>
+        {{#each normalResults}}
+        <tr class="normal">
+            <td>{{patientName}}</td>
+            <td>{{patientAge}}</td>
+            <td>{{patientGender}}</td>
+            <td>{{observationDisplay}}</td>
+            <td>{{value}} {{unit}}</td>
+            <td>{{referenceRange}}</td>
+            <td>{{interpretation}}</td>
+        </tr>
+        {{/each}}
+    </table>
 </body>
 </html>

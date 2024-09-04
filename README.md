@@ -1,12 +1,13 @@
 # FHIR Express Backend
 
-This is a production-grade Express.js application with TypeScript for handling FHIR resources and implementing a scheduler for FHIR-related tasks.
+This is a production-grade Express.js application with TypeScript for handling FHIR resources, implementing a scheduler for FHIR-related tasks, and monitoring abnormal lab readings.
 
 ## Features
 
 - Express.js with TypeScript
 - REST API for FHIR resources (currently implemented for Patients)
 - Scheduler for periodic FHIR-related tasks
+- Abnormal Lab Readings Monitoring Service
 - Error handling and logging
 - CORS, Helmet for security
 - Environment variable configuration
@@ -35,6 +36,8 @@ This is a production-grade Express.js application with TypeScript for handling F
    ```
    PORT=3000
    FHIR_SERVER_URL=<your-fhir-server-url>
+   SMTP_PORT=587
+   SMTP_SECURE=false
    ```
 
 4. Generate or provide your own `keys.json` file in the `keys` folder. The file should contain your JSON Web Key Set. For example:
@@ -111,9 +114,43 @@ For detailed information about request/response schemas and example payloads, pl
 
 The application includes a scheduler that runs daily at midnight to sync patient data. You can modify the scheduler logic in `src/utils/scheduler.ts`.
 
+## Abnormal Lab Readings Monitoring Service
+
+The application includes a service for monitoring abnormal lab readings. This service is implemented using the following components:
+
+- `src/services/monitoringService.ts`: Main service that orchestrates the monitoring process
+- `src/services/authService.ts`: Handles authentication with the FHIR server
+- `src/services/apiService.ts`: Manages API communication with the FHIR server
+- `src/services/dataProcessingService.ts`: Processes and analyzes patient data and observations
+- `src/services/emailService.ts`: Sends email notifications for abnormal lab readings
+
+To customize the monitoring process or adjust the criteria for abnormal readings, you can modify these services as needed.
+
 ## Logging
 
 Logs are written to `error.log` and `combined.log` files, as well as to the console.
+
+## Project Structure
+
+The project follows a modular structure adhering to SOLID principles:
+
+```
+src/
+├── controllers/
+├── middleware/
+├── models/
+├── routes/
+├── services/
+│   ├── authService.ts
+│   ├── apiService.ts
+│   ├── dataProcessingService.ts
+│   ├── emailService.ts
+│   └── monitoringService.ts
+├── utils/
+└── server.ts
+```
+
+Each service in the `services/` directory has a single responsibility, making the codebase more maintainable and easier to extend.
 
 ## Contributing
 
